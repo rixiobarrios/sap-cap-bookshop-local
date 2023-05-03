@@ -25,6 +25,9 @@
         "kind": "sql",
         "credentials": {
           "database": "db/my-bookshop.db"
+        },
+        "features": {
+          "fiori_preview": true
         }
       },
       "[production]": {
