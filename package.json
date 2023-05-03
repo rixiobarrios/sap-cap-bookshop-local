@@ -7,7 +7,10 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^6",
-    "express": "^4"
+    "express": "^4",
+    "@sap/xssec": "^3",
+    "passport": "^0",
+    "hdb": "^0.19.0"
   },
   "devDependencies": {
     "sqlite": "^4.2.0",
@@ -19,9 +22,20 @@
   "cds": {
     "requires": {
       "db": {
-        "kind": "sqlite",
+        "kind": "sql",
         "credentials": {
           "database": "db/my-bookshop.db"
+        }
+      },
+      "[production]": {
+        "auth": {
+          "kind": "xsuaa"
+        },
+        "db": {
+          "kind": "hana-cloud"
+        },
+        "approuter": {
+          "kind": "cloudfoundry"
         }
       }
     }
